@@ -1,6 +1,6 @@
 <?php
 
-class EncodeController extends Zend_Rest_Controller
+class UploadController extends Zend_Rest_Controller
 {
  
     private $_config = null;
@@ -15,14 +15,14 @@ class EncodeController extends Zend_Rest_Controller
     // Handle GET and return a list of resources
     public function indexAction() 
     {
-        $j = new JW_Cluster_EncodeJobs($this->_config);
+        $j = new JW_Cluster_UploadJobs($this->_config);
         $this->view->content = $j->getJobList();
     }
 
     // Handle GET and return a specific resource item
     public function getAction() 
     {
-        $j = new JW_Cluster_EncodeJobs($this->_config);
+        $j = new JW_Cluster_UploadJobs($this->_config);
         $this->view->content = $j->getJob($this->_getParam('id'));
     }
     

@@ -9,19 +9,13 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $router = $front->getRouter();
 
         $router->addRoute(
-            'restToApiController',
-            new Zend_Rest_Route($front, array(), array('default'=>array('api')))
+            'restToEncodeController',
+            new Zend_Rest_Route($front, array(), array('default'=>array('encode')))
         );
-        
+
         $router->addRoute(
-            'frameToApiController',
-            new Zend_Controller_Router_Route(
-                'api/frame/:id',
-                array(
-                    'controller' => 'api',
-                    'action'     => 'frame'
-                )
-            )
+            'restToUploadController',
+            new Zend_Rest_Route($front, array(), array('default'=>array('upload')))
         );
         
     }
